@@ -1,0 +1,791 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Installation</title><style>
+/* cspell:disable-file */
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+.simple-table {
+	margin-top: 1em;
+	font-size: 0.875rem;
+	empty-cells: show;
+}
+.simple-table td {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table th {
+	height: 29px;
+	min-width: 120px;
+}
+
+.simple-table-header-color {
+	background: rgb(247, 246, 243);
+	color: black;
+}
+.simple-table-header {
+	font-weight: 500;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	max-height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, ui-serif, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK JP'; }
+.pdf:lang(zh-CN) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC'; }
+.pdf:lang(zh-TW) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK TC'; }
+.pdf:lang(ko-KR) .sans { font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK KR'; }
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .code { font-family: Source Code Pro, "SFMono-Regular", Menlo, Consolas, "PT Mono", "Liberation Mono", Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK JP'; }
+.pdf:lang(zh-CN) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK SC'; }
+.pdf:lang(zh-TW) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK TC'; }
+.pdf:lang(ko-KR) .serif { font-family: PT Serif, Lyon-Text, Georgia, ui-serif, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Serif CJK KR'; }
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK JP'; }
+.pdf:lang(zh-CN) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC'; }
+.pdf:lang(zh-TW) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK TC'; }
+.pdf:lang(ko-KR) .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK KR'; }
+.highlight-default {
+	color: rgba(55, 53, 47, 1);
+}
+.highlight-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.highlight-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.highlight-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.highlight-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.highlight-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.highlight-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.highlight-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.highlight-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.highlight-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.highlight-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.highlight-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.highlight-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.highlight-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.highlight-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.highlight-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.highlight-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.highlight-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.highlight-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(120, 119, 116, 1);
+	fill: rgba(120, 119, 116, 1);
+}
+.block-color-brown {
+	color: rgba(159, 107, 83, 1);
+	fill: rgba(159, 107, 83, 1);
+}
+.block-color-orange {
+	color: rgba(217, 115, 13, 1);
+	fill: rgba(217, 115, 13, 1);
+}
+.block-color-yellow {
+	color: rgba(203, 145, 47, 1);
+	fill: rgba(203, 145, 47, 1);
+}
+.block-color-teal {
+	color: rgba(68, 131, 97, 1);
+	fill: rgba(68, 131, 97, 1);
+}
+.block-color-blue {
+	color: rgba(51, 126, 169, 1);
+	fill: rgba(51, 126, 169, 1);
+}
+.block-color-purple {
+	color: rgba(144, 101, 176, 1);
+	fill: rgba(144, 101, 176, 1);
+}
+.block-color-pink {
+	color: rgba(193, 76, 138, 1);
+	fill: rgba(193, 76, 138, 1);
+}
+.block-color-red {
+	color: rgba(212, 76, 71, 1);
+	fill: rgba(212, 76, 71, 1);
+}
+.block-color-gray_background {
+	background: rgba(241, 241, 239, 1);
+}
+.block-color-brown_background {
+	background: rgba(244, 238, 238, 1);
+}
+.block-color-orange_background {
+	background: rgba(251, 236, 221, 1);
+}
+.block-color-yellow_background {
+	background: rgba(251, 243, 219, 1);
+}
+.block-color-teal_background {
+	background: rgba(237, 243, 236, 1);
+}
+.block-color-blue_background {
+	background: rgba(231, 243, 248, 1);
+}
+.block-color-purple_background {
+	background: rgba(244, 240, 247, 0.8);
+}
+.block-color-pink_background {
+	background: rgba(249, 238, 243, 0.8);
+}
+.block-color-red_background {
+	background: rgba(253, 235, 236, 1);
+}
+.select-value-color-pink { background-color: rgba(245, 224, 233, 1); }
+.select-value-color-purple { background-color: rgba(232, 222, 238, 1); }
+.select-value-color-green { background-color: rgba(219, 237, 219, 1); }
+.select-value-color-gray { background-color: rgba(227, 226, 224, 1); }
+.select-value-color-opaquegray { background-color: rgba(255, 255, 255, 0.0375); }
+.select-value-color-orange { background-color: rgba(250, 222, 201, 1); }
+.select-value-color-brown { background-color: rgba(238, 224, 218, 1); }
+.select-value-color-red { background-color: rgba(255, 226, 221, 1); }
+.select-value-color-yellow { background-color: rgba(253, 236, 200, 1); }
+.select-value-color-blue { background-color: rgba(211, 229, 239, 1); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="33834039-2a59-4a91-b843-6f27d702f8eb" class="page sans"><header><h1 class="page-title">Installation</h1></header><div class="page-body"><h1 id="b6ac2959-05ad-4d4a-85de-cc1f7dd0e1f1" class="">Server Node</h1><ol type="1" id="3b01facc-d1e5-4670-bcd5-bd4b2fb39795" class="numbered-list" start="1"><li>Install Script  (Master Node 공통 설치)</li></ol><pre id="11dbfa9f-63c5-4ae3-829e-2f7b09029983" class="code code-wrap"><code># Root User 
+swapoff -a  #(/etc/fstab swap comment out)
+apt-get upgrade -y 
+apt-get dist-upgrade -y 
+apt-get update -y
+systemctl stop ufw &amp;&amp; ufw disable &amp;&amp; iptables -F
+curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=&quot;server&quot; sh -
+systemctl enable rke2-server.service
+
+# Use Sudo
+sudo swapoff -a  #(/etc/fstab swap comment out)
+sudo apt-get upgrade -y 
+sudo apt-get dist-upgrade -y 
+sudo apt-get update -y
+sudo sh -c &#x27;systemctl stop ufw &amp;&amp; ufw disable &amp;&amp; iptables -F&#x27;
+sudo sh -c &#x27;curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=&quot;server&quot; sh -&#x27;
+# sudo sh -c &#x27;curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=&quot;server&quot; INSTALL_RKE2_VERSION=&quot;v1.22.6+rke2r1&quot; sh -&#x27;
+sudo sh -c &#x27;systemctl enable rke2-server.service&#x27;</code></pre><ol type="1" id="f2b6f81f-648b-4910-8eb3-1903bb11738b" class="numbered-list" start="2"><li>CNI (Calico) Setting</li></ol><pre id="27b6e97e-dee4-42ec-ad9f-bc98b216eca9" class="code code-wrap"><code># Root User
+mkdir -p /etc/rancher/rke2
+vi /etc/rancher/rke2/config.yaml
+
+# Use Sudo
+sudo mkdir -p /etc/rancher/rke2
+sudo sh -c &#x27;cat&lt;&lt;EOF &gt; /etc/rancher/rke2/config.yaml
+cni: &quot;calico&quot;
+EOF&#x27;
+
+sudo cat /etc/rancher/rke2
+
+# sudo vi /etc/rancher/rke2/config.yaml
+# ↓ Write Option 
+# cni: &quot;calico&quot;</code></pre><ol type="1" id="5e016a50-c3e6-40ed-9f77-bfcb7645b011" class="numbered-list" start="3"><li>Run Service  <strong>RKE2-Server (1st Only)</strong></li></ol><pre id="ca852815-b203-45f3-9dab-1333ba8b4487" class="code code-wrap"><code># Root User
+systemctl start rke2-server.service
+
+# Use Sudo
+sudo sh -c &#x27;systemctl start rke2-server.service&#x27;</code></pre><ol type="1" id="68ebd1e5-fba6-439b-b0cf-f5bee16c0ae8" class="numbered-list" start="4"><li>Set Kubeconfig </li></ol><pre id="16b1b270-7c6f-4390-ada7-82671f4c5bda" class="code code-wrap"><code># Root User
+mkdir ~/.kube/
+cp /etc/rancher/rke2/rke2.yaml ~/.kube/config
+export PATH=$PATH:/var/lib/rancher/rke2/bin/
+echo &#x27;export PATH=/usr/local/bin:/var/lib/rancher/rke2/bin:$PATH&#x27; &gt;&gt; ~/.bashrc
+echo &#x27;source &lt;(kubectl completion bash)&#x27; &gt;&gt;~/.bashrc
+echo &#x27;alias k=kubectl&#x27; &gt;&gt;~/.bashrc
+echo &#x27;complete -F __start_kubectl k&#x27; &gt;&gt;~/.bashrc
+
+# Use Sudo
+sudo mkdir ~/.kube/
+sudo cp /etc/rancher/rke2/rke2.yaml /home/rancher/.kube/config
+export PATH=$PATH:/var/lib/rancher/rke2/bin/
+sudo echo &#x27;export PATH=/usr/local/bin:/var/lib/rancher/rke2/bin:$PATH&#x27; &gt;&gt; ~/.bashrc
+sudo echo &#x27;source &lt;(kubectl completion bash)&#x27; &gt;&gt;~/.bashrc
+sudo echo &#x27;alias k=kubectl&#x27; &gt;&gt;~/.bashrc
+sudo echo &#x27;complete -F __start_kubectl k&#x27; &gt;&gt;~/.bashrc
+
+sudo sh -c &#x27;chmod -R 755 /home/rancher/.kube&#x27;</code></pre><ol type="1" id="240b9b51-f604-4988-bd6f-b5ae49274065" class="numbered-list" start="5"><li>Check Running CNI(Calico)</li></ol><pre id="d04ee726-0ff9-47ae-8958-77fd1c847e71" class="code code-wrap"><code>kubectl get ns calico-system
+kubectl get deploy -n calico-system
+kubectl get ds -n calico-system</code></pre><ol type="1" id="1bc10ca6-d1b6-4ccf-8791-4d3d6e345f11" class="numbered-list" start="6"><li>Copy RKE Server Token (1st Only)</li></ol><pre id="e64af863-168a-4ffd-bfbb-9267d9e18074" class="code code-wrap"><code>sudo cat /var/lib/rancher/rke2/server/node-token
+# Example
+# K1050efa12b1c9c7b9e8d5d2f41ad7b4dfa98035b89bc0739679f338b222c681143::server:7bc6df135e949cb687b3a3ed5f578ca7</code></pre><ol type="1" id="656856b2-c840-49a8-b7fb-5ff3a5ce2d62" class="numbered-list" start="7"><li>Joining a node (2nd, 3rd) to the first node</li></ol><pre id="edbe7b64-bd86-4dec-862c-fb1805b8bc1d" class="code code-wrap"><code>sudo mkdir -p /etc/rancher/rke2
+sudo vi /etc/rancher/rke2/config.yaml
+
+# edit configure file
+# server: 1st Node IP
+# token: Token in [6]
+server: https://192.168.0.8:9345
+token: [1번노드 토큰]</code></pre><ol type="1" id="ef7afb77-b944-4d61-a0bd-01d45b1e809a" class="numbered-list" start="8"><li>Run Service  <strong>RKE2-Server (2nd, 3rd)</strong></li></ol><pre id="4f82da18-6986-4ccd-a859-cec5277376fb" class="code code-wrap"><code># Root User
+systemctl start rke2-server.service
+
+# Use Sudo
+sudo sh -c &#x27;systemctl start rke2-server.service&#x27;</code></pre><h1 id="7635c2a5-9740-4403-91da-fb7ee5f9029b" class="">Worker Node</h1><ol type="1" id="67863c7d-8a0a-4b29-9a49-560c227f8272" class="numbered-list" start="1"><li>Install Script</li></ol><pre id="a4b28ec1-25a6-470d-83cf-31a3480aa366" class="code code-wrap"><code># Root User
+curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=&quot;agent&quot; sh -
+mkdir -p /etc/rancher/rke2/
+vi /etc/rancher/rke2/config.yaml
+# server: https://&lt;server&gt;:9345
+# token: ( Server Token )
+# node-name : (선택사항)
+
+# Use Sudo
+sudo sh -c &#x27;curl -sfL https://get.rke2.io | INSTALL_RKE2_TYPE=&quot;agent&quot; sh -&#x27;
+sudo mkdir -p /etc/rancher/rke2/
+sudo vi /etc/rancher/rke2/config.yaml
+#server: https://&lt;server&gt;:9345
+#token: ( Server Token )</code></pre><ol type="1" id="75b90d38-b1a7-4209-8baf-f9c1cca7edb2" class="numbered-list" start="2"><li>Start RKE2 (Agent) Service</li></ol><pre id="ee361e52-e57b-4821-9249-aa3fca6e2217" class="code code-wrap"><code># Root User
+systemctl enable rke2-agent.service
+systemctl start rke2-agent.service
+journalctl -u rke2-agent -f
+
+# Use Sudo
+sudo sh -c &#x27;systemctl enable rke2-agent.service&#x27;
+sudo sh -c &#x27;systemctl start rke2-agent.service&#x27;
+journalctl -u rke2-agent -f</code></pre><ol type="1" id="4846831a-670d-4a1f-85eb-b5ddfa9c91b6" class="numbered-list" start="3"><li>Confirm  joined Node(Agent)</li></ol><pre id="cfb44598-b1ce-4df3-941e-de97089d2a4e" class="code code-wrap"><code>kubectl get nodes
+
+# NAME         STATUS   ROLES                       AGE     VERSION
+# instance-1   Ready    control-plane,etcd,master   160m    v1.23.8+rke2r1
+# instance-2   Ready    control-plane,etcd,master   45m     v1.23.8+rke2r1
+# instance-3   Ready    control-plane,etcd,master   44m     v1.23.8+rke2r1
+# instance-4   Ready    &lt;none&gt;                      2m18s   v1.23.8+rke2r1</code></pre><p id="f2fb0b1b-1e4a-4737-a229-b32160855af7" class="">
+</p><p id="70fd4b26-576b-46da-a048-54c223084159" class="">[Optional] Remove RKE2 (Rancher)</p><pre id="b0b337ff-e5f1-4193-8a4e-3c7a2cf0376b" class="code code-wrap"><code>sudo /usr/local/bin/rke2-killall.sh
+sudo /usr/local/bin/rke2-uninstall.sh</code></pre><h2 id="ad5220bb-d3b6-4b91-98f9-2f005f8c97f1" class="">Setup Cert-Manager</h2><pre id="f34148aa-0f0f-4f10-bdc1-374ec81edc77" class="code code-wrap"><code>kubectl apply -f https://github.com/jetstack/cert-manager/releases/download/v1.5.4/cert-manager.yaml
+kubectl -n cert-manager rollout status deploy/cert-manager
+kubectl -n cert-manager rollout status deploy/cert-manager-webhook 
+kubectl get pods --namespace cert-manager</code></pre><h2 id="f606738e-f688-4f1c-92d6-f3cc02ab8857" class="">Setup Helm</h2><pre id="26f354ce-dbb5-46fa-8e5f-24ad846971ff" class="code code-wrap"><code>curl -fsSL -o get_helm.sh https://raw.githubusercontent.com/helm/helm/master/scripts/get-helm-3
+chmod 700 get_helm.sh
+./get_helm.sh</code></pre><p id="47b4fd79-645b-4585-9650-946892d40f8c" class="">
+</p><h2 id="4d97c661-e7ac-45bc-b32c-30c056189b76" class="">Setup Rancher UI</h2><pre id="7863b9df-c581-450c-a37a-25dd918555a7" class="code code-wrap"><code>kubectl create namespace cattle-system
+helm repo add rancher-stable https://releases.rancher.com/server-charts/stable
+helm repo update
+helm search repo rancher-stable
+
+# Edit Replicas Count (Node Count만큼)
+helm install rancher rancher-stable/rancher --namespace cattle-system --set hostname=192.168.0.8.nip.io --version=2.6.5 --set bootstrapPassword=123123123123 --set replicas=3</code></pre><pre id="bdbf933b-3284-416e-803d-6b62cb2d6706" class="code code-wrap"><code>helm install rancher rancher-stable/rancher \
+--namespace cattle-system \
+--set hostname=192.168.0.8.nip.io \
+--version=2.6.5 \
+--set replicas=3
+
+# Reset BootstrapPassword
+kubectl -n cattle-system exec $(kubectl -n cattle-system get pods -l app=rancher | grep &#x27;1/1&#x27; | head -1 | awk &#x27;{ print $1 }&#x27;) -- reset-password</code></pre><pre id="169bb19c-1a1b-4f94-9e60-7c11a0706a39" class="code code-wrap"><code>helm upgrade --install rancher rancher-stable/rancher \
+--namespace cattle-system \
+--set hostname=10.138.0.24 \
+--version=2.6.5 \
+--set bootstrapPassword=Password123! \
+--set replicas=3</code></pre><p id="ffe0e4b3-b5f4-4b14-8a31-cba04d434094" class="">
+</p></div></article></body></html>
